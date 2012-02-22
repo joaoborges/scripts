@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# This script defines a simple way to look inside
+# the contents of a file(s) for a specific
+# expression, using the 'find' command.
+
+if [ $# -ne 2 ]
+then
+    echo "Usage: ./findinside DIRECTORY EXPRESSION"
+    echo "Example: ./findinside ~ test"
+    exit
+fi
+
+# Directory to start looking
+F_DIR=$1
+# Expression to look
+F_EXP=$2
+
+find $F_DIR -type f -exec grep -i "$F_EXP" {} \; -print
+
