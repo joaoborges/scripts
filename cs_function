@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# This script defines a function, named 'cs',
+# which wraps the original bulti in 'cd' function,
+# adding the functionality of storing the current
+# PWD location and persist this location across
+# another instances of the BASH shell.
+
+# To be effective it needs to be called at each
+# bash starting, on possible way to do this is
+# to call it in your .bashrc file:
+
+# source ~/scripts/cs_function
+
+# File to store the current PWD location 
+CS_TMP="$HOME/.tmp_current_dir"
+
+# A 'cd' function wrapper
+function cs()
+{
+    # check if the 'cs' function has some arguments
+    if [ $# -eq 0 ]
+    then
+        cd
+    else
+        cd "$*"
+    fi
+
+    # Saving the PWD location
+    echo $PWD > $CS_TMP
+}
+
+# Loading the previously stored PWD location and
+# defining it as the current one
+if [ -f "$CS_TMP" ]
+then
+    cd `cat $CS_TMP`
+fi
+
+# Replacing the original 'cd' function by its 'cs'
+# wrapper:
+alias cd="cs"
+
