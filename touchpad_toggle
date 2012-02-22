@@ -2,7 +2,7 @@
 
 # This script toggles the Touchpad On/Off, also
 # turning On/Off the TouchPad's LED too, in the
-# Dell Vostro v131 Laptop.
+# Dell Vostro v131 Laptop using Synaptics driver.
 
 # To be effective it's necessary to add writing
 # permission to the following archive:
