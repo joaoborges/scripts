@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# This script toggles the Touchpad On/Off, also
+# turning On/Off the TouchPad's LED too, in the
+# Dell Vostro v131 Laptop.
+
+# To be effective it's necessary to add writing
+# permission to the following archive:
+
+# chmod o+w \
+# /sys/class/leds/dell-laptop::touchpad/brightness
+
+# Getting the status of the Touchpad's toggle LED
+# Used to define the status of the Touchpad (on/Off)
+LED_STATUS=`cat \
+/sys/class/leds/dell-laptop::touchpad/brightness`
+
+if [ $LED_STATUS -eq 1 ] 
+then
+    # touchpad is disabled and will be enabled
+    synclient TouchpadOff=0
+    echo 0 > /sys/class/leds/dell-laptop::touchpad/brightness
+else
+    # touchpad is enabled and will be disabled
+    synclient TouchpadOff=1
+    echo 1 > /sys/class/leds/dell-laptop::touchpad/brightness
+fi
