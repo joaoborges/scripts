@@ -3,7 +3,7 @@
 "
 " Author: Steve Francia
 " Maintainer: Joao Borges
-" Last Change: 2010 Sep 25
+" Last Change: 2016 Dec 10
 
 " Windows Compatible {
 	" On Windows, also use '.vim' instead of 'vimfiles'; this makes synchronization
