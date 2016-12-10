@@ -4,6 +4,8 @@
 # the contents of a file(s) for a specific
 # expression, using the 'find' command.
 
+# To use, link it in /usr/bin/findinside 
+
 if [ $# -ne 2 ]
 then
     echo "Usage: ./findinside DIRECTORY EXPRESSION"

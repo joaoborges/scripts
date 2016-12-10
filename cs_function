@@ -34,7 +34,7 @@ function cs()
 # defining it as the current one
 if [ -f "$CS_TMP" ]
 then
-    cd `cat $CS_TMP`
+    cd "`cat $CS_TMP`"
 fi
 
 # Replacing the original 'cd' function by its 'cs'
